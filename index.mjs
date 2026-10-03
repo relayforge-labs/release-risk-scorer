@@ -16,7 +16,7 @@ const input = fs.readFileSync(process.argv[2] || "examples/input.txt", "utf8");
 const response = await fetch(cfg.OPENAI_BASE_URL.replace(/\/$/, "") + "/chat/completions", {
   method: "POST",
   headers: {"authorization": `Bearer ${cfg.OPENAI_API_KEY}`, "content-type": "application/json"},
-  body: JSON.stringify({model: cfg.OPENAI_MODEL || "chat-default",
+  body: JSON.stringify({model: cfg.OPENAI_MODEL || "gpt-6-astra",
     messages: [{role: "system", content: "Perform release risk scoring. Return concise JSON for human review."},
                {role: "user", content: input}], max_tokens: 256, temperature: 0})
 });
